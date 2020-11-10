@@ -1,0 +1,112 @@
+.chat-view-container {
+  width: 65%;
+  margin-left: 2%;
+  height: calc(100vh - 30px);
+  margin-top: 15px;
+  position: relative;
+  background-color:  #dfd0fd;
+  border-radius: 15px;
+
+  .chat-header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 20px rgba($color: #b3b3b3, $alpha: 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    background-color:  #ceb7ff;
+    border-radius: 15px;
+    color: white;
+
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 18px;
+    }
+  }
+
+  .input-holder {
+    height: 60px;
+    width: 95%;
+    position: absolute;
+    bottom: 10px;
+    left: 2.5%;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .send-input {
+      width: 75%;
+      height: 50px;
+      border: 1px solid #efefef;
+      padding-left: 20px;
+      border-radius: 10px;
+      font-size: 17px;
+
+      &:focus {
+        border: 2px solid  #6b29f8;
+        outline: none;
+      }
+    }
+
+    .send-button {
+      width: 20%;
+      height: 50px;
+      background-color: #5d24d6;
+      border: none;
+      color: white;
+      font-size: 18px;
+      border-radius: 10px;
+    }
+  }
+
+  .messages-holder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 100;
+    margin-top: 50px;
+    height: calc(100% - 130px);
+    overflow: auto;
+    position: relative;
+
+    .chat-from-friend {
+      text-align: left;
+      width: auto;
+      color: white;
+      margin-top: 15px;
+      margin-bottom: 15px;
+
+      span {
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: white;
+        color: #252525;
+      }
+    }
+
+    .chat-from-us {
+      display: inline;
+      text-align: right;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+
+      span {
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: #7136f0;
+        color: white;
+      }
+    }
+  }
+}

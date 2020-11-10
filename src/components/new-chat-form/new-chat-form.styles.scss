@@ -1,0 +1,36 @@
+.new-chat-container {
+  width: 65%;
+  margin-left: 2.5%;
+  height: 100%;
+
+  .title {
+    font-size: 22px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .new-chat-input {
+      height: 50px;
+      width: 400px;
+      padding-left: 10px;
+      font-size: 17px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 2px solid  #ceb7ff;
+    }
+
+    .new-chat-submit {
+      background-color: #ceb7ff;
+      height: 50px;
+      width: 400px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      color: white;
+    }
+  }
+}
