@@ -36,7 +36,7 @@ function Dashboard(props) {
             setChats(chats);
           });
       } else {
-        // props.history.push("/signup");
+        props.history.push("/signup");
       }
     });
     return () => {
