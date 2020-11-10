@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import ChatView from "../../components/chat-view/chat-view.component";
 import ChatsOverview from "../../components/chats-overview/chats-overview.component";
 import NewChatForm from "../../components/new-chat-form/new-chat-form.component";
-import { auth, firestore } from "../../firebase/firebase.utils";
+import firebase, { auth, firestore } from "../../firebase/firebase.utils";
 
 import "./dashboard.styles.scss";
 
@@ -24,7 +24,7 @@ function Dashboard(props) {
           uid,
         });
 
-        await firestore
+        firestore
           .collection("chats")
           .where("users", "array-contains", user.email)
           .onSnapshot(async (res) => {
@@ -36,7 +36,7 @@ function Dashboard(props) {
             setChats(chats);
           });
       } else {
-        props.history.push("/signup");
+        props.history.push("/login");
       }
     });
     return () => {

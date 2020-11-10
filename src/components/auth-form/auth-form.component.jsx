@@ -10,7 +10,7 @@ function AuthForm({ authMode, history, ...props }) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
 
     if (authMode === "signup") {
@@ -29,15 +29,18 @@ function AuthForm({ authMode, history, ...props }) {
           });
       });
       return;
-    } 
-    
-    if (authMode === 'login'){
+    }
+
+    if (authMode === "login") {
       console.log("Logged in");
 
-      auth
+      await auth
         .signInWithEmailAndPassword(email, password)
-        .then(history.push("/"))
-        .catch(err => console.log(err));
+        .then((user) => {
+          history.push("/");
+          console.log(user);
+        })
+        .catch((err) => console.log(err));
     }
   };
 
@@ -73,11 +76,17 @@ function AuthForm({ authMode, history, ...props }) {
       {error && <p>{error}</p>}
       {authMode === "signup" ? (
         <div>
-          Already have an account? <NavLink to="login" className='nav-links'>Sign in</NavLink>
+          Already have an account?{" "}
+          <NavLink to="login" className="nav-links">
+            Sign in
+          </NavLink>
         </div>
       ) : (
         <div>
-          Don't have an account? <NavLink to="signup" className='nav-links'>Sign up</NavLink>
+          Don't have an account?{" "}
+          <NavLink to="signup" className="nav-links">
+            Sign up
+          </NavLink>
         </div>
       )}
     </div>
